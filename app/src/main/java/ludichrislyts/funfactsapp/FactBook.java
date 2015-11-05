@@ -21,11 +21,12 @@ public class FactBook {
             "On average, it takes 66 days to form a new habit.",
             "Mammoths still walked the earth when the Great Pyramid was being built." };
     //Method (abilities: things the object can do)
-    public String getFact(){String fact= "";
-        Random randomGenerator = new Random(); // Construct a new Random number generator
-        int randomNumber = randomGenerator.nextInt(mFacts.length);
+    public String getFact(int num){
+        String fact= "";
+//        Random randomGenerator = new Random(); // Construct a new Random number generator
+//        int randomNumber = randomGenerator.nextInt(mFacts.length);
         //Convert the randomNumber to a text fact
-        fact = mFacts[randomNumber];
+        fact = mFacts[num];
 
         return fact;
     }
