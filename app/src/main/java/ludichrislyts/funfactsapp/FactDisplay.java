@@ -28,7 +28,7 @@ public class FactDisplay extends AppCompatActivity {
         setContentView(R.layout.activity_fact_display);
         // Declare our View variables and assign the Views from the layour file
         final TextView factLabel = (TextView) findViewById(R.id.FactTextView);
-        Button showFactButton = (Button) findViewById(R.id.showFactButton);
+        final Button showFactButton = (Button) findViewById(R.id.showFactButton);
         final RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.relativeLayout);
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
@@ -41,6 +41,7 @@ public class FactDisplay extends AppCompatActivity {
                 // Update the label with our dynamic fact
                 relativeLayout.setBackgroundColor(color);
                 factLabel.setText(fact);
+                showFactButton.setTextColor(color);
             }
         };
         showFactButton.setOnClickListener(listener);
