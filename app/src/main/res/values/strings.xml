@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Fact Display</string>
+    <string name="action_settings">Settings</string>
+    <string name="fact1">Ants stretch when they wake up in the morning</string>
+    <string name="titleQuestion">Did You Know?</string>
+    <string name="button">Show Another Fun Fact</string>
+</resources>
