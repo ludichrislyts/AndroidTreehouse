@@ -1,6 +1,7 @@
 package ludichrislyts.funfactsapp;
 
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -30,14 +31,18 @@ public class FactDisplay extends AppCompatActivity {
         final TextView factLabel = (TextView) findViewById(R.id.FactTextView);
         final Button showFactButton = (Button) findViewById(R.id.showFactButton);
         final RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.relativeLayout);
+        final MediaPlayer mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.click);
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mMediaPlayer.start();
                 Random randomGenerator = new Random(); // Construct a new Random number generator
-                int randomNumber = randomGenerator.nextInt(mFactBook.mFacts.length);
-
-                String fact = mFactBook.getFact(randomNumber);
-                int color = mColorWheel.getColor(randomNumber);
+                int randomFactNumber = randomGenerator.nextInt(mFactBook.mFacts.length);
+                // get random fact
+                String fact = mFactBook.getFact(randomFactNumber);
+                int randomColorNumber = randomGenerator.nextInt(mColorWheel.mColors.length);
+                // get random color
+                int color = mColorWheel.getColor(randomColorNumber);
                 // Update the label with our dynamic fact
                 relativeLayout.setBackgroundColor(color);
                 factLabel.setText(fact);
@@ -53,7 +58,7 @@ public class FactDisplay extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Chris hasn't made this button do anything yet.", Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
             }
         });
