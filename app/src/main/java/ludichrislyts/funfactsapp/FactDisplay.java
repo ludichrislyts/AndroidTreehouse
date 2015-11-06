@@ -1,23 +1,14 @@
 package ludichrislyts.funfactsapp;
 
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import ludichrislyts.funfactsapp.ColorWheel;
-import ludichrislyts.funfactsapp.FactBook;
 
 import java.util.Random;
 
@@ -40,15 +31,6 @@ public class FactDisplay extends AppCompatActivity {
         final MediaPlayer mMediaPlayer = MediaPlayer.create(getApplicationContext(), raw.click);
         final ImageView pictureView = (ImageView) findViewById(id.picture);
 
-        //DUPLICATE OF BELOW TO TEST POSITION
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Chris hasn't made this button do anything yet.", Snackbar.LENGTH_SHORT)
-//                        .setAction("Action", null).show();
-//            }
-//        });
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,12 +47,10 @@ public class FactDisplay extends AppCompatActivity {
                 relativeLayout.setBackgroundColor(color);
                 factLabel.setText(fact);
                 showFactButton.setTextColor(color);
-            };
-
+            }
         };
         showFactButton.setOnClickListener(listener);
         FloatingActionButton fab = (FloatingActionButton) findViewById(id.fab);
-        //final ImageView pictureView = (ImageView) findViewById(id.picture);
         FloatingActionButton.OnClickListener imageButton = new FloatingActionButton.OnClickListener(){
 
             @Override
@@ -82,29 +62,11 @@ public class FactDisplay extends AppCompatActivity {
                     pictureView.setImageResource(pic);
                     pictureView.setVisibility((View.VISIBLE));
                 }
-            };
-
+            }
         };
         fab.setOnClickListener(imageButton);
     }
 }
-
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-
-
-
-
-
-
-
-
-
-        //images.SetVisibility(View.Gone)
-
-
-//                Snackbar.make(view, "Chris hasn't made this button do anything yet.", Snackbar.LENGTH_SHORT)
-//                        .setAction("Action", null).show();
 
 
 

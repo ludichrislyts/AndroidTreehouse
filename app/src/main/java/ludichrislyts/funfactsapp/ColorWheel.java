@@ -4,6 +4,7 @@ import android.graphics.Color;
 
 /**
  * Created by ludichrislyts on 11/5/2015.
+ * An array of colors
  */
 public class ColorWheel {
     public String[] mColors = {
@@ -21,8 +22,12 @@ public class ColorWheel {
             "#000000", // black
             "#b7c0c7"  // light gray
     };
+    /*
+     * An array to hold a selection of colors used as backgrounds
+     * @param num: a random number
+     * @return: the color at the array index position of num
+     */
     public int getColor(int num){
-        int color = Color.parseColor(mColors[num]);
-        return color;
+        return Color.parseColor(mColors[num]);
     }
 }

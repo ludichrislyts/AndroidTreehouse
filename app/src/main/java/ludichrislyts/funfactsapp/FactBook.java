@@ -1,14 +1,13 @@
 package ludichrislyts.funfactsapp;
-import java.util.Random;
 /**
+ * Hold the array of facts to choose from
  * Created by ludichrislyts on 11/5/2015.
  */
 public class FactBook {
     /**
      * Created by ludichrislyts on 11/4/2015.
+     * Fact array positions like up with corresponding image array positions
      */
-
-    //Member variable )properties about the object)
     public String[] mFacts = {
             "Ants stretch when they wake up in the morning.",
             "Ostriches can run faster than horses.",
@@ -19,16 +18,15 @@ public class FactBook {
             "The state of Florida is bigger than England.",
             "Some penguins can leap 2-3 meters out of the water.",
             "On average, it takes 66 days to form a new habit.",
-            "Mammoths still walked the earth when the Great Pyramid was being built." };
-    //Method (abilities: things the object can do)
-    public String getFact(int num){
-        String fact= "";
-//        Random randomGenerator = new Random(); // Construct a new Random number generator
-//        int randomNumber = randomGenerator.nextInt(mFacts.length);
-        //Convert the randomNumber to a text fact
-        fact = mFacts[num];
-
-        return fact;
+            "Mammoths still walked the earth when the Great Pyramid was being built."
+    };
+    /*
+     * Method that selects a fact from the array
+     * @param num: a random number
+     * @return: the selected fact
+     */
+    public String getFact(int num) {
+        return mFacts[num];
     }
 }
 

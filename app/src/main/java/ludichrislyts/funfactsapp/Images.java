@@ -1,11 +1,7 @@
 package ludichrislyts.funfactsapp;
 
-import android.graphics.drawable.Drawable;
-
-import static ludichrislyts.funfactsapp.R.*;
-
 /**
- * An array of drawables
+ * An array of drawables, positions match up with corresponding facts in FactBook array
  * Created by ludichrislyts on 11/5/2015.
  */
 public class Images {
@@ -21,7 +17,12 @@ public class Images {
             R.drawable.habits,
             R.drawable.mammoth,
     };
+    /*
+     * Function to select an image from the array
+     * @param num: Random number used to select the fact
+     * @return: Returns the image as an integer
+     */
     public int getPic(int num){
         return this.mPictures[num];
-    };
+    }
 }
