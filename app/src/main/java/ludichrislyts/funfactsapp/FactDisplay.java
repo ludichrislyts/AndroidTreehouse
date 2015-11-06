@@ -38,7 +38,7 @@ public class FactDisplay extends AppCompatActivity {
         final Button showFactButton = (Button) findViewById(id.showFactButton);
         final RelativeLayout relativeLayout = (RelativeLayout) findViewById(id.relativeLayout);
         final MediaPlayer mMediaPlayer = MediaPlayer.create(getApplicationContext(), raw.click);
-
+        final ImageView pictureView = (ImageView) findViewById(id.picture);
 
         //DUPLICATE OF BELOW TO TEST POSITION
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -49,7 +49,6 @@ public class FactDisplay extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
-
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,7 +70,7 @@ public class FactDisplay extends AppCompatActivity {
         };
         showFactButton.setOnClickListener(listener);
         FloatingActionButton fab = (FloatingActionButton) findViewById(id.fab);
-        final ImageView pictureView = (ImageView) findViewById(id.picture);
+        //final ImageView pictureView = (ImageView) findViewById(id.picture);
         FloatingActionButton.OnClickListener imageButton = new FloatingActionButton.OnClickListener(){
 
             @Override
