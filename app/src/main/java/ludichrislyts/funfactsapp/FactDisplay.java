@@ -1,6 +1,8 @@
 package ludichrislyts.funfactsapp;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -19,20 +21,24 @@ import ludichrislyts.funfactsapp.FactBook;
 
 import java.util.Random;
 
+import static ludichrislyts.funfactsapp.R.*;
+
 public class FactDisplay extends AppCompatActivity {
     private FactBook mFactBook = new FactBook();
     private ColorWheel mColorWheel = new ColorWheel();
-
+    private Images mImages = new Images();
+    public int idForMatchingPicToFact = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fact_display);
+        setContentView(layout.activity_fact_display);
         // Declare our View variables and assign the Views from the layour file
-        final TextView factLabel = (TextView) findViewById(R.id.FactTextView);
-        final Button showFactButton = (Button) findViewById(R.id.showFactButton);
-        final RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.relativeLayout);
-        final MediaPlayer mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.click);
+        final TextView factLabel = (TextView) findViewById(id.FactTextView);
+        final Button showFactButton = (Button) findViewById(id.showFactButton);
+        final RelativeLayout relativeLayout = (RelativeLayout) findViewById(id.relativeLayout);
+        final MediaPlayer mMediaPlayer = MediaPlayer.create(getApplicationContext(), raw.click);
+
 
         //DUPLICATE OF BELOW TO TEST POSITION
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -50,6 +56,7 @@ public class FactDisplay extends AppCompatActivity {
                 mMediaPlayer.start();
                 Random randomGenerator = new Random(); // Construct a new Random number generator
                 int randomFactNumber = randomGenerator.nextInt(mFactBook.mFacts.length);
+                idForMatchingPicToFact = randomFactNumber;
                 // get random fact
                 String fact = mFactBook.getFact(randomFactNumber);
                 int randomColorNumber = randomGenerator.nextInt(mColorWheel.mColors.length);
@@ -63,15 +70,20 @@ public class FactDisplay extends AppCompatActivity {
 
         };
         showFactButton.setOnClickListener(listener);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        final ImageView pictureView = (ImageView) findViewById(R.id.imageView);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(id.fab);
+        final ImageView pictureView = (ImageView) findViewById(id.picture);
         FloatingActionButton.OnClickListener imageButton = new FloatingActionButton.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                pictureView.setImageResource(R.drawable.ostrich2);
+                if(pictureView.isShown()){
+                    pictureView.setVisibility(View.INVISIBLE);
+                }else{
+                    int pic = mImages.getPic(idForMatchingPicToFact);
+                    pictureView.setImageResource(pic);
+                    pictureView.setVisibility((View.VISIBLE));
+                }
             };
-
 
         };
         fab.setOnClickListener(imageButton);

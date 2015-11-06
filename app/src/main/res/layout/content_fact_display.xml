@@ -45,8 +45,11 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
+        android:id="@+id/picture"
         android:layout_below="@+id/textView"
         android:layout_alignRight="@+id/FactTextView"
-        android:layout_alignEnd="@+id/FactTextView" />
+        android:layout_alignEnd="@+id/FactTextView"
+        android:visibility="invisible"
+        android:layout_centerVertical="true" />
+
 </RelativeLayout>
