@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import ludichrislyts.funfactsapp.ColorWheel;
@@ -32,6 +33,17 @@ public class FactDisplay extends AppCompatActivity {
         final Button showFactButton = (Button) findViewById(R.id.showFactButton);
         final RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.relativeLayout);
         final MediaPlayer mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.click);
+
+        //DUPLICATE OF BELOW TO TEST POSITION
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Chris hasn't made this button do anything yet.", Snackbar.LENGTH_SHORT)
+//                        .setAction("Action", null).show();
+//            }
+//        });
+
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,20 +59,42 @@ public class FactDisplay extends AppCompatActivity {
                 relativeLayout.setBackgroundColor(color);
                 factLabel.setText(fact);
                 showFactButton.setTextColor(color);
-            }
+            };
+
         };
         showFactButton.setOnClickListener(listener);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final ImageView pictureView = (ImageView) findViewById(R.id.imageView);
+        FloatingActionButton.OnClickListener imageButton = new FloatingActionButton.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                pictureView.setImageResource(R.drawable.ostrich2);
+            };
+
+
+        };
+        fab.setOnClickListener(imageButton);
+    }
+}
 
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Chris hasn't made this button do anything yet.", Snackbar.LENGTH_SHORT)
-                        .setAction("Action", null).show();
-            }
-        });
-    }
-}
+
+
+
+
+
+
+
+
+        //images.SetVisibility(View.Gone)
+
+
+//                Snackbar.make(view, "Chris hasn't made this button do anything yet.", Snackbar.LENGTH_SHORT)
+//                        .setAction("Action", null).show();
+
+
+
+

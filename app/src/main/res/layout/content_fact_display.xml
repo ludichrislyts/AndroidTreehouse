@@ -14,7 +14,8 @@
     <TextView android:text="@string/titleQuestion" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="26sp"
-        android:textColor="#80ffffff" />
+        android:textColor="#80ffffff"
+        android:id="@+id/textView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -40,4 +41,12 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@android:color/white" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_below="@+id/textView"
+        android:layout_alignRight="@+id/FactTextView"
+        android:layout_alignEnd="@+id/FactTextView" />
 </RelativeLayout>
