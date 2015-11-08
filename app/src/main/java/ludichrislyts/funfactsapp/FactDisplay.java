@@ -26,6 +26,7 @@ public class FactDisplay extends AppCompatActivity {
         setContentView(layout.activity_fact_display);
         // Declare our View variables and assign the Views from the layour file
         final TextView factLabel = (TextView) findViewById(id.FactTextView);
+        final TextView question = (TextView) findViewById(id.textView);
         final Button showFactButton = (Button) findViewById(id.showFactButton);
         final RelativeLayout relativeLayout = (RelativeLayout) findViewById(id.relativeLayout);
         final MediaPlayer mMediaPlayer = MediaPlayer.create(getApplicationContext(), raw.click);
@@ -34,6 +35,7 @@ public class FactDisplay extends AppCompatActivity {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                pictureView.setVisibility(View.INVISIBLE);
                 mMediaPlayer.start();
                 Random randomGenerator = new Random(); // Construct a new Random number generator
                 int randomFactNumber = randomGenerator.nextInt(mFactBook.mFacts.length);
@@ -45,6 +47,7 @@ public class FactDisplay extends AppCompatActivity {
                 int color = mColorWheel.getColor(randomColorNumber);
                 // Update the label with our dynamic fact
                 relativeLayout.setBackgroundColor(color);
+                question.setHighlightColor(color);
                 factLabel.setText(fact);
                 showFactButton.setTextColor(color);
             }
